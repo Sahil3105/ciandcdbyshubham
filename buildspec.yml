@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing NGINX
+      - sudo apt-get update
+      - sudo apt-get install nginx -y
+  build:
+    commands:
+      - echo Build started on 'date'
+      - mkdir -p build-artifacts
+      - cp index.html build-artifacts/
+  post_build:
+    commands:
+      - echo Configuring NGINX
+      # Add actual NGINX configuration commands here
+
+artifacts:
+  files:
+    - build-artifacts/index.html  # Ensure this path matches the location of your build artifacts
